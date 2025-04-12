@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Career Guidance Platform</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f4f8;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      text-align: center;
+      margin: 20px;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .card {
+      background-color: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .card h2 {
+      margin-bottom: 15px;
+    }
+
+    .input-field {
+      padding: 10px;
+      width: 80%;
+      max-width: 400px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin: 10px auto;
+      display: block;
+    }
+
+    .button {
+      padding: 10px 25px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .button:hover {
+      background-color: #45a049;
+    }
+
+    .recommendation {
+      font-size: 1.3em;
+      color: #007BFF;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #e0e0e0;
+      margin-top: 50px;
+    }
+
+    @media (max-width: 600px) {
+      .input-field {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Career Compass</h1>
+    <p>Discover a future that fits you.</p>
+  </header>
+
+  <nav>
+    <a href="#assessment">Assessment</a>
+    <a href="#mentorship">Mentorship</a>
+    <a href="#login">Login</a>
+  </nav>
+
+  <div class="container">
+
+    <!-- Career Assessment Section -->
+    <div id="assessment" class="card">
+      <h2>Career Assessment</h2>
+      <input id="career-input" class="input-field" type="text" placeholder="Enter your interests (e.g., AI, Design)">
+      <button class="button" onclick="getRecommendation()">Get Recommendation</button>
+    </div>
+
+    <!-- Recommendation Output -->
+    <div id="career-recommendation" class="card" style="display:none;">
+      <h2>Recommended Career</h2>
+      <p class="recommendation" id="recommended-career"></p>
+    </div>
+
+    <!-- Mentorship -->
+    <div id="mentorship" class="card">
+      <h2>Mentorship & Guidance</h2>
+      <p>Connect with experienced mentors to get career insights and real-world advice.</p>
+      <button class="button">Find a Mentor</button>
+    </div>
+
+    <!-- Login / Signup -->
+    <div id="login" class="card">
+      <h2>Login or Create an Account</h2>
+      <input type="email" class="input-field" placeholder="Email">
+      <input type="password" class="input-field" placeholder="Password">
+      <button class="button">Login</button>
+      <p style="margin-top: 10px;">Don’t have an account? <a href="#">Sign up</a></p>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>© 2025 Career Compass. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function getRecommendation() {
+      const interests = document.getElementById("career-input").value.toLowerCase();
+      const suggestions = {
+        ai: "AI Researcher",
+        coding: "Software Engineer",
+        design: "UX/UI Designer",
+        data: "Data Scientist",
+        security: "Cybersecurity Analyst",
+        business: "Business Analyst",
+        marketing: "Digital Marketing Specialist"
+      };
+
+      let recommended = "Career Coach";
+      for (const keyword in suggestions) {
+        if (interests.includes(keyword)) {
+          recommended = suggestions[keyword];
+          break;
+        }
+      }
+
+      document.getElementById("recommended-career").textContent = recommended;
+      document.getElementById("career-recommendation").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
